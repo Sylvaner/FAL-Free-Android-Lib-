@@ -6,6 +6,7 @@ package free.android.lib;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.webkit.WebView;
 import android.widget.Toast;
 
@@ -53,6 +54,7 @@ public class FALMessage
 		AlertDialog.Builder dialog = new AlertDialog.Builder(context);
 		dialog.setMessage(text)
 		      .create();
+
 	}
 	
 	/** Show dialog with text and title
@@ -67,7 +69,8 @@ public class FALMessage
 		AlertDialog.Builder dialog = new AlertDialog.Builder(context);
 		dialog.setMessage(text)
 			  .setTitle(title)
-		      .create();
+		      .create()
+		      .show();
 	}
 	
 	/** Show dialog with text, title and button
@@ -128,6 +131,36 @@ public class FALMessage
 			dialog.setPositiveButton(buttonText, listener);
 		dialog.setTitle(title)
 		      .setView(webView)
-		      .create();
+		      .show();
+	}
+	
+	/** Show notification in status bar
+	 * 
+	 * @param icon
+	 * id of drawable item
+	 * @param title
+	 * Title of the notification
+	 * @param text
+	 * Text of the notification
+	 */
+	public void showNotification(int icon, String title, String text)
+	{
+		
+	}
+	
+	/** Show notification in status bar
+	 * 
+	 * @param icon
+	 * id of drawable item
+	 * @param title
+	 * Title of the notification
+	 * @param text
+	 * Text of the notification
+	 * @param action
+	 * Action launch on click
+	 */
+	public void showNotification(int icon, String title, String text, Intent action)
+	{
+		
 	}
 }
