@@ -142,7 +142,23 @@ public class FALMessage
 	 * @param resAppName
 	 * String resource id for app name
 	 * @param resIcon
-	 * Drawable resource id of drawable item
+	 * Drawable resource id of icon
+	 * @param title
+	 * Title of the notification
+	 * @param text
+	 * Text of the notification
+	 */
+	public void showNotification(int resAppName, int resIcon, String title, String text)
+	{
+		showNotification(resAppName, resIcon, title, text, new Intent());
+	}
+
+	/** Show notification in status bar with action
+	 * 
+	 * @param resAppName
+	 * String resource id for app name
+	 * @param resIcon
+	 * Drawable resource id of icon
 	 * @param title
 	 * Title of the notification
 	 * @param text
