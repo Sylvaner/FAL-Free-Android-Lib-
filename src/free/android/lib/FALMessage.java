@@ -4,6 +4,9 @@
 package free.android.lib;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -136,22 +139,10 @@ public class FALMessage
 	
 	/** Show notification in status bar
 	 * 
-	 * @param icon
-	 * id of drawable item
-	 * @param title
-	 * Title of the notification
-	 * @param text
-	 * Text of the notification
-	 */
-	public void showNotification(int icon, String title, String text)
-	{
-		
-	}
-	
-	/** Show notification in status bar
-	 * 
-	 * @param icon
-	 * id of drawable item
+	 * @param resAppName
+	 * String resource id for app name
+	 * @param resIcon
+	 * Drawable resource id of drawable item
 	 * @param title
 	 * Title of the notification
 	 * @param text
@@ -159,8 +150,13 @@ public class FALMessage
 	 * @param action
 	 * Action launch on click
 	 */
-	public void showNotification(int icon, String title, String text, Intent action)
+	public void showNotification(int resAppName, int resIcon, String title, String text, Intent action)
 	{
+		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		Notification notification = new Notification(resIcon, title, System.currentTimeMillis());
+		PendingIntent contentIntent = PendingIntent.getActivity(context, 0, action, 0);
+		notification.setLatestEventInfo(context, title, text, contentIntent);
+		notificationManager.notify(resAppName, notification);
 		
 	}
 }
